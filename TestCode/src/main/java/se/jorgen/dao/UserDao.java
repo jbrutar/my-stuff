@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
+import se.jorgen.entity.User;
 
 @Repository
 public class UserDao {
@@ -13,8 +14,12 @@ public class UserDao {
     private EntityManager entityManager;
 
     @SuppressWarnings("unchecked")
-    public List<String> findAll() {
+    public List<User> findAll() {
 	Query query = entityManager.createQuery("from User");
 	return query.getResultList();
+    }
+
+    public User findById(int id) {
+	return entityManager.find(User.class, id);
     }
 }

@@ -6,20 +6,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import se.jorgen.entity.User;
 import se.jorgen.service.UserService;
 
-@Controller
-public class AppControler {
+@Controller("/users")
+public class UsersController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/test")
-    public ModelAndView search(Model model) {
-	System.err.println("Controller search");
+    @RequestMapping
+    public ModelAndView showAll(Model model) {
 	ModelAndView mav = new ModelAndView("users");
-	List<String> list = userService.findInDb();
-	mav.addObject(list);
+	List<User> list = userService.findAll();
+	mav.addObject("users", list);
 
 	return mav;
     }

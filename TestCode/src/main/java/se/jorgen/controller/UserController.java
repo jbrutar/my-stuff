@@ -10,16 +10,28 @@ import org.springframework.web.servlet.ModelAndView;
 import se.jorgen.entity.User;
 import se.jorgen.service.UserService;
 
-@Controller("/user")
+@Controller
+@RequestMapping(value = "/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "get/{userId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{userId}/get", method = RequestMethod.GET)
     public ModelAndView get(@PathVariable int userId, Model model) {
 	ModelAndView mav = new ModelAndView("user");
 	User user = userService.findById(userId);
+	mav.addObject("user", user);
+
+	return mav;
+    }
+
+    @RequestMapping(value = "/{userId}/update", method = RequestMethod.PUT)
+    public ModelAndView update(@PathVariable int userId, Model model) {
+	ModelAndView mav = new ModelAndView("user");
+	User user = userService.findById(userId);
+	user.setName("Jan Banan");
+	userService.update(user);
 	mav.addObject("user", user);
 
 	return mav;

@@ -22,4 +22,8 @@ public class UserService {
     public User findById(int id) {
 	return userDao.findById(id);
     }
+
+    public void update(User user) {
+	userDao.update(user);
+    }
 }

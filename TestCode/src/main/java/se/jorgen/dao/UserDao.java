@@ -22,4 +22,9 @@ public class UserDao {
     public User findById(int id) {
 	return entityManager.find(User.class, id);
     }
+
+    public User update(User user) {
+	entityManager.persist(user);
+	return user;
+    }
 }

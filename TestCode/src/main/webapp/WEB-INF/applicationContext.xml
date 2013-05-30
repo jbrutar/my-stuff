@@ -33,6 +33,8 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+	
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
 	<jee:jndi-lookup id="testDB" jndi-name="java:/comp/env/jdbc/TestDB"
 		expected-type="javax.sql.DataSource" />

@@ -24,7 +24,7 @@ public class UserDao {
     }
 
     public User update(User user) {
-	entityManager.persist(user);
+	entityManager.merge(user);
 	return user;
     }
 }

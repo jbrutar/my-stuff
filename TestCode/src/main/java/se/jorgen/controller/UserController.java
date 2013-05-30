@@ -1,5 +1,6 @@
 package se.jorgen.controller;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,11 +27,9 @@ public class UserController {
 	return mav;
     }
 
-    @RequestMapping(value = "/{userId}/update", method = RequestMethod.PUT)
-    public ModelAndView update(@PathVariable int userId, Model model) {
+    @RequestMapping(value = "/{userId}/update", method = RequestMethod.POST)
+    public ModelAndView update(@PathVariable int userId, @Valid User user) {
 	ModelAndView mav = new ModelAndView("user");
-	User user = userService.findById(userId);
-	user.setName("Jan Banan");
 	userService.update(user);
 	mav.addObject("user", user);
 

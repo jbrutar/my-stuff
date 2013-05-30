@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="include.jsp" %>
 <html>
 <body>
 <h1>Users</h1>

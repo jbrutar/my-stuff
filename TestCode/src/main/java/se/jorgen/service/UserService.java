@@ -1,6 +1,7 @@
 package se.jorgen.service;
 
 import java.util.List;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -12,18 +13,20 @@ import se.jorgen.entity.User;
 @Transactional(propagation = Propagation.REQUIRED)
 public class UserService {
 
-    @Autowired
-    private UserDao userDao;
+	private static Logger logger = Logger.getLogger("UserService");
 
-    public List<User> findAll() {
-	return userDao.findAll();
-    }
+	@Autowired
+	private UserDao userDao;
 
-    public User findById(int id) {
-	return userDao.findById(id);
-    }
+	public List<User> findAll() {
+		return userDao.findAll();
+	}
 
-    public void update(User user) {
-	userDao.update(user);
-    }
+	public User findById(int id) {
+		return userDao.findById(id);
+	}
+
+	public void update(User user) {
+		userDao.update(user);
+	}
 }

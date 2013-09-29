@@ -36,7 +36,7 @@
 	
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
-	<jee:jndi-lookup id="testDB" jndi-name="java:/comp/env/jdbc/TestDB"
+	<jee:jndi-lookup id="testDB" jndi-name="java:/jdbc/TestDB"
 		expected-type="javax.sql.DataSource" />
 
 	<bean id="entityManagerFactory"

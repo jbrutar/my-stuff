@@ -9,7 +9,7 @@
 		transaction-type="RESOURCE_LOCAL">
 		<mapping-file>META-INF/orm.xml</mapping-file>
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<non-jta-data-source>java:/comp/env/jdbc/TestDB</non-jta-data-source>  
+		<non-jta-data-source>java:/jdbc/TestDB</non-jta-data-source>  
 	</persistence-unit>
 
 </persistence>

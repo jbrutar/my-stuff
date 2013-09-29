@@ -11,6 +11,9 @@
 <form:form method="post" action="/user/${user.id}/update" commandName="user">
     <table>
     	<tr>
+    		<td><form:hidden /></td>
+    	</tr>
+    	<tr>
         	<td>Username : </td>
   			<td><form:input path="name" /></td>
   			<td><form:errors path="name" /></td>

@@ -23,6 +23,7 @@ public class UserService {
 	}
 
 	public User findById(int id) {
+		logger.info("msg: " + id);
 		return userDao.findById(id);
 	}
 

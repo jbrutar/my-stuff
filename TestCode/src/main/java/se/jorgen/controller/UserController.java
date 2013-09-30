@@ -1,5 +1,6 @@
 package se.jorgen.controller;
 
+import java.util.logging.Logger;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,8 @@ import se.jorgen.service.UserService;
 @RequestMapping(value = "/user")
 public class UserController {
 
+	private static Logger logger = Logger.getLogger("UserController");
+
 	@Autowired
 	private UserService userService;
 
@@ -23,7 +26,8 @@ public class UserController {
 		ModelAndView mav = new ModelAndView("user");
 		User user = userService.findById(userId);
 		mav.addObject("user", user);
-		int i = 0;
+
+		logger.info("msg");
 
 		return mav;
 	}

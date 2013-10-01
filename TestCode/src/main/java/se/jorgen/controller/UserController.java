@@ -1,5 +1,6 @@
 package se.jorgen.controller;
 
+import java.util.logging.Logger;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,24 +16,28 @@ import se.jorgen.service.UserService;
 @RequestMapping(value = "/user")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+	private static Logger logger = Logger.getLogger("UserController");
 
-    @RequestMapping(value = "/{userId}/get", method = RequestMethod.GET)
-    public ModelAndView get(@PathVariable int userId, Model model) {
-	ModelAndView mav = new ModelAndView("user");
-	User user = userService.findById(userId);
-	mav.addObject("user", user);
+	@Autowired
+	private UserService userService;
 
-	return mav;
-    }
+	@RequestMapping(value = "/{userId}/get", method = RequestMethod.GET)
+	public ModelAndView get(@PathVariable int userId, Model model) {
+		ModelAndView mav = new ModelAndView("user");
+		User user = userService.findById(userId);
+		mav.addObject("user", user);
 
-    @RequestMapping(value = "/{userId}/update", method = RequestMethod.POST)
-    public ModelAndView update(@PathVariable int userId, @Valid User user) {
-	ModelAndView mav = new ModelAndView("user");
-	userService.update(user);
-	mav.addObject("user", user);
+		logger.info("msg" + userId);
 
-	return mav;
-    }
+		return mav;
+	}
+
+	@RequestMapping(value = "/{userId}/update", method = RequestMethod.POST)
+	public ModelAndView update(@PathVariable int userId, @Valid User user) {
+		ModelAndView mav = new ModelAndView("user");
+		userService.update(user);
+		mav.addObject("user", user);
+
+		return mav;
+	}
 }

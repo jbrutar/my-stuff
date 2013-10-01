@@ -4,3 +4,4 @@ target/
 *.project
 TestCode/.settings/org.eclipse.jdt.core.prefs
 *.classpath
+bin/

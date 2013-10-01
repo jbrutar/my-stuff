@@ -27,7 +27,7 @@ public class UserController {
 		User user = userService.findById(userId);
 		mav.addObject("user", user);
 
-		logger.info("msg" + userId);
+		logger.info("msg userId " + userId);
 
 		return mav;
 	}

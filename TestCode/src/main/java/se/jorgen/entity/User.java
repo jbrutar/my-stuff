@@ -9,6 +9,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 public class User {
 
+    //Comment
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
